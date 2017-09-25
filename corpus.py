@@ -35,7 +35,7 @@ class Corpus():
 			for line in islice(lines, 1, len(lines)):
 				partials = line.split(",")
 				token = self.create_token(partials)
-				self.list_of_tokens.append(token.__dict__)
+				self.list_of_tokens.append(token)
 
 		return self.list_of_tokens
 
@@ -55,6 +55,9 @@ class Corpus():
 			pass
 
 
-c = Corpus()
-print c.read_file('en_train.csv')
-print c.list_of_unique_classnames
+	def get_list_of_tokens(self):
+		return self.list_of_tokens
+
+
+	def get_list_of_unique_classnames(self):
+		return self.list_of_unique_classnames

@@ -20,6 +20,7 @@ __credits__ = [
 	}
 ]
 
+from features import Features
 
 class Token(object):
 	"""docstring for Token"""
@@ -42,6 +43,12 @@ class Token(object):
 	def set_prediction(self, prediction):
 		self.after = prediction
 
+	def get_class(self):
+		return self.class_type
+
+	def set_class(self, classname):
+		self.class_type = classname
+
 	def set_token(self, object):
 		self.sentence_id = object[0]
 		self.token_id = object[1]
@@ -49,3 +56,8 @@ class Token(object):
 		self.before = object[3].replace('"', '', 2)
 		self.after = object[4].replace('"', '', 2)
 
+	def feature_extraction(self):
+		f = Features()
+		feature_of_token = f.feature_extraction(self)
+		print feature_of_token
+		return feature_of_token

@@ -20,3 +20,14 @@ __credits__ = [
 	}
 ]
 
+from corpus import Corpus
+from multiclass_perceptron import MCP
+
+c = Corpus()
+token_list = c.read_file('en_train.csv')
+
+mcp = MCP()
+mcp.create_perceptrons(c)
+mcp.train(c, 10)
+mcp.test(c)
+

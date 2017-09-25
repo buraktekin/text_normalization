@@ -25,13 +25,18 @@ class Perceptron():
 	def prediction_score(self, token):
 		sum = 0.0
 		for feature in token.feature_extraction():
-			if !(feature in self.weights):
+			if(feature not in self.weights):
 				self.weights[feature] = 0.0
 			else:
 				sum += self.weights[feature]
 
 		return sum
 
+	def set_name(self, classname):
+		self.name = classname
+
+	def get_name(self):
+		return self.name
 
 # public double predictionScore(Token token) {
 # 	double sum = 0;
